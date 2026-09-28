@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><title>Sòl Annou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>html,body{margin:0;padding:0}img{max-width:100%}</style>
+<style id="sol-css">
+:root{
+  --ground:#F3F5F2; --surface:#FFFFFF; --sunk:#E8ECE7; --line:#D3D9D2;
+  --ink:#16222B; --ink-2:#4A5963; --ink-3:#74838C;
+  --accent:#1D4F91; --accent-ink:#FFFFFF; --accent-soft:#DCE6F4;
+  --gold:#E5A823; --gold-soft:#FBEFD2; --gold-ink:#5A3E00;
+  --good:#23734A; --good-soft:#DBF0E3; --bad:#B42F2F; --bad-soft:#F8DEDE;
+  --shadow:0 1px 2px rgba(22,34,43,.06),0 6px 20px rgba(22,34,43,.06);
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --ground:#10171C; --surface:#18222A; --sunk:#202C35; --line:#2E3C46;
+  --ink:#E9EEF0; --ink-2:#B3C0C7; --ink-3:#8494A0;
+  --accent:#7FA9E6; --accent-ink:#0C1824; --accent-soft:#1E3350;
+  --gold:#F0BC4A; --gold-soft:#3A2F16; --gold-ink:#F7DB9C;
+  --good:#6CCB96; --good-soft:#173527; --bad:#F08A8A; --bad-soft:#3E1D1F;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#10171C; --surface:#18222A; --sunk:#202C35; --line:#2E3C46;
+  --ink:#E9EEF0; --ink-2:#B3C0C7; --ink-3:#8494A0;
+  --accent:#7FA9E6; --accent-ink:#0C1824; --accent-soft:#1E3350;
+  --gold:#F0BC4A; --gold-soft:#3A2F16; --gold-ink:#F7DB9C;
+  --good:#6CCB96; --good-soft:#173527; --bad:#F08A8A; --bad-soft:#3E1D1F;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;font-variant-numeric:tabular-nums}
+.wrap{max-width:980px;margin:0 auto;padding-inline:16px;padding-block:24px 96px;display:grid;gap:28px}
+.wrap>*{min-width:0}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(30px,6vw,44px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:22px;font-weight:600}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+.muted{color:var(--ink-2)}
+.small{font-size:14px}
+header.top{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:flex-end;justify-content:space-between}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--ink-2);font-size:15px;margin-top:8px}
+.facts b{color:var(--ink)}
+button{font:inherit;cursor:pointer}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:9px 14px;font-weight:700;font-size:15px}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.small{padding:6px 10px;font-size:14px}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.pay:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* this weekend */
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.now{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft),var(--shadow)}
+.now .who{display:flex;align-items:center;gap:14px;margin:14px 0 6px}
+.chip{display:inline-flex;align-items:center;justify-content:center;min-width:88px;padding:8px 14px;border-radius:12px;font-family:var(--display);font-weight:800;font-size:clamp(26px,5vw,36px);letter-spacing:.02em;border:1px solid rgba(0,0,0,.15)}
+.pot{font-family:var(--display);font-weight:800;font-size:28px}
+.bar{height:12px;border-radius:99px;background:var(--sunk);overflow:hidden;margin:14px 0 6px}
+.bar i{display:block;height:100%;background:var(--good);border-radius:99px;transition:width .4s}
+.next .who{display:flex;align-items:center;gap:12px;margin-top:12px}
+.next .chip{font-size:24px;min-width:72px;padding:6px 12px}
+.meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:14px;color:var(--ink-2)}
+
+/* rotation */
+.rot{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+.row{display:grid;grid-template-columns:34px 14px 1fr auto;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 12px}
+.row.cur{border-color:var(--gold);background:var(--gold-soft)}
+.row .n{font-weight:700;color:var(--ink-3);text-align:right}
+.sw{width:14px;height:14px;border-radius:4px;border:1px solid rgba(0,0,0,.2)}
+.row .c{font-weight:700}
+.row .d{font-size:13px;color:var(--ink-2)}
+.pill{font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px;white-space:nowrap;letter-spacing:.02em}
+.p-done{background:var(--sunk);color:var(--ink-2)}
+.p-now{background:var(--gold);color:#2B1D00}
+.p-up{background:var(--accent-soft);color:var(--accent)}
+.p-paid{background:var(--good-soft);color:var(--good)}
+.p-owe{background:var(--bad-soft);color:var(--bad)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+
+/* staircase chart */
+.chart-box{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
+table.stair{border-collapse:collapse;font-size:12px;color:#111}
+.stair th,.stair td{border:1px solid #1d1d1d;width:24px;min-width:24px;height:22px;padding:0;text-align:center}
+.stair thead th{height:78px;vertical-align:bottom;font-weight:700;font-size:11px}
+.stair thead th span{writing-mode:vertical-rl;transform:rotate(180deg);display:inline-block;padding:4px 0;white-space:nowrap}
+.stair th.lab{width:30px;min-width:30px}
+.stair th.code{width:58px;min-width:58px;font-weight:700}
+.stair td.diag{background:#fff;font-weight:700}
+.stair th.tot,.stair td.tot{background:#9BBB59;min-width:92px;font-weight:700;color:#10240A;padding:0 6px}
+.stair .curcol{box-shadow:inset 0 0 0 2px #111}
+.stair thead th.corner{background:transparent;border:none;color:var(--bad);font-family:var(--display);font-size:14px}
+.chart-note{font-size:13px;color:var(--ink-3);margin-top:10px}
+
+/* organizer */
+.org{border:2px dashed var(--accent);border-radius:16px;padding:18px;background:var(--surface);display:grid;gap:16px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:var(--sunk);color:var(--ink);padding:7px 14px;border-radius:99px;font-weight:700;font-size:14px}
+.tab[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.weekbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.weekbar strong{font-family:var(--display);font-size:19px}
+.paygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+.payrow{display:grid;grid-template-columns:24px 1fr auto 84px;gap:8px;align-items:center;padding:6px 8px;border:1px solid var(--line);border-radius:10px;background:var(--ground)}
+.payrow.ok{border-color:var(--good);background:var(--good-soft)}
+.payrow.part{border-color:var(--gold);background:var(--gold-soft)}
+.payrow .code{font-weight:700;display:flex;align-items:center;gap:6px;min-width:0}
+.pay{border:1px solid var(--line);border-radius:8px;padding:5px 8px;background:var(--surface);color:var(--ink);font-weight:700;font-size:14px}
+.pay.on{background:var(--good);border-color:var(--good);color:var(--surface)}
+.amt{width:100%;border:1px solid var(--line);border-radius:8px;padding:5px 8px;background:var(--surface);color:var(--ink);font:inherit;font-size:14px;text-align:right}
+.totals{display:flex;gap:10px 22px;flex-wrap:wrap;font-size:15px}
+.totals b{font-size:18px}
+.form{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.field{display:grid;gap:5px;font-size:14px;font-weight:700;color:var(--ink-2)}
+.field input,.field textarea,.field select{font:inherit;font-weight:400;color:var(--ink);background:var(--ground);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.field textarea{min-height:220px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:400;color:var(--ink)}
+.check input{margin-top:4px;width:18px;height:18px}
+.msg{white-space:pre-wrap;background:var(--ground);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:15px}
+.savebar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--ground);display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;z-index:5}
+.savebar .btn{background:var(--gold);color:#2B1D00;border-color:var(--gold)}
+.savebar .btn.ghost{background:transparent;color:var(--ground);border-color:var(--ink-3)}
+.note{font-size:14px;color:var(--ink-2)}
+.err{color:var(--bad);font-weight:700}
+footer{font-size:14px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:16px;display:grid;gap:6px}
+@media (max-width:720px){.hero{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head><body>
+<div id="app"></div>
+<script>window.SOL_PUBLIC=true</script>
+<script type="application/json" id="sol-state">{"name":"Sòl Annou","hand":500,"start":"2026-04-19","trackFrom":24,"showStatus":false,"hands":["DA06","PEHI","DEBE","FS12","JW05","AN02","AN02","LS18","RA04","JY03","GO10","GO10","OB16","EXJA","EL04","FR20","MA04","DAJA","BA02","RO15","GO10","BA02","BA05","IS04","OB16","FR13","MAMO"],"paid":{},"sent":{},"updated":"2026-09-28T02:42:42.253Z"}</script>
+<script id="sol-app">
+(function(){
+"use strict";
+var SKELETON = "<!doctype html><html><head><meta charset=utf8><meta name=viewport content=\"width=device-width,initial-scale=1,viewport-fit=cover\"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>";
+var STATE = JSON.parse(document.getElementById("sol-state").textContent);
+var saved = JSON.stringify(STATE);
+var PUBLIC = !!window.SOL_PUBLIC;
+var ui = { org:false, tab:"pay", week:null, busy:false, error:"", canEdit:false, artifact:null, downloads:null, copied:false, webMsg:"" };
+
+var COLORS = {DA06:"#FFCCFF",PEHI:"#D8E4BC",DEBE:"#00FFFF",FS12:"#00B050",JW05:"#FF8FF0",AN02:"#FFFFFF",LS18:"#BFBFBF",
+  RA04:"#FFC000",JY03:"#B1A0C7",GO10:"#31869B",OB16:"#DDEBF7",EXJA:"#00DC82",EL04:"#FF7C80",FR20:"#2F6BFF",MA04:"#948A54",
+  DAJA:"#FFFF00",BA02:"#DA9694",RO15:"#00FFCC",BA05:"#00B0F0",IS04:"#FFFFCC",FR13:"#4BACC6",MAMO:"#948A54"};
+var EXTRA = ["#F4B084","#A9D08E","#9BC2E6","#FFE699","#C9C9C9","#F8CBAD","#B4C7E7","#FFD966"];
+function colorOf(code, i){ return COLORS[code] || EXTRA[i % EXTRA.length]; }
+function textOn(hex){
+  var h = hex.replace("#",""); var r=parseInt(h.substr(0,2),16), g=parseInt(h.substr(2,2),16), b=parseInt(h.substr(4,2),16);
+  return (0.299*r+0.587*g+0.114*b) > 150 ? "#111" : "#fff";
+}
+function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
+function money(n){ return "$" + Math.round(n).toLocaleString("en-US"); }
+function parseDate(s){ var p=s.split("-"); return new Date(+p[0], +p[1]-1, +p[2]); }
+function isoDate(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+function weekDate(w){ var d=parseDate(STATE.start); d.setDate(d.getDate()+7*(w-1)); return d; }
+function fmt(d, opts){ return d.toLocaleDateString("en-US", opts || {month:"short", day:"numeric"}); }
+function N(){ return STATE.hands.length; }
+function pot(){ return STATE.hand * N(); }
+function currentWeek(){
+  var t = new Date(); t.setHours(0,0,0,0);
+  var w = Math.floor((t - parseDate(STATE.start)) / (7*864e5)) + 1;
+  return Math.max(1, Math.min(N(), w));
+}
+function recipient(w){ return STATE.hands[w-1] || ""; }
+function paidFor(w){ return STATE.paid[String(w)] || {}; }
+function collected(w){ var p=paidFor(w), s=0; for (var k in p) s += +p[k] || 0; return s; }
+function handsIn(w){ var p=paidFor(w), c=0; for (var i=1;i<=N();i++) if ((+p[i]||0) >= STATE.hand) c++; return c; }
+function dirty(){ return JSON.stringify(STATE) !== saved; }
+
+function render(){
+  var app = document.getElementById("app");
+  var cw = currentWeek(), n = N(), rec = recipient(cw);
+  var tracked = cw >= STATE.trackFrom;
+  var col = collected(cw), pct = Math.min(100, Math.round(col / pot() * 100));
+  var h = [];
+  h.push('<div class="wrap">');
+  // header
+  h.push('<header class="top"><div><div class="eyebrow">Sòl · Rotating savings</div><h1>'+esc(STATE.name)+'</h1>');
+  h.push('<div class="facts"><span><b>'+n+'</b> hands</span><span><b>'+money(STATE.hand)+'</b> per hand, every weekend</span><span>Pot <b>'+money(pot())+'</b></span><span>Weekend '+fmt(weekDate(1),{month:"2-digit",day:"2-digit"})+' → '+fmt(weekDate(n),{month:"2-digit",day:"2-digit"})+'</span></div></div>');
+  if (ui.canEdit) h.push('<button class="btn '+(ui.org?'':'primary')+'" id="orgToggle" aria-expanded="'+ui.org+'">'+(ui.org?'Close organizer':'Organizer')+'</button>');
+  h.push('</header>');
+
+  if (ui.canEdit && ui.org) h.push(renderOrg(cw));
+
+  // hero
+  var rc = colorOf(rec, cw-1);
+  h.push('<section class="hero" aria-label="This weekend">');
+  h.push('<div class="card now"><div class="meta"><span class="eyebrow">This weekend · Week '+cw+' of '+n+'</span><span>'+fmt(weekDate(cw),{weekday:"long",month:"long",day:"numeric"})+'</span></div>');
+  h.push('<div class="who"><span class="chip" style="background:'+rc+';color:'+textOn(rc)+'">'+esc(rec)+'</span><div><div class="muted small">receives the pot</div><div class="pot">'+money(pot())+'</div></div></div>');
+  if (tracked){
+    h.push('<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="'+pot()+'" aria-valuenow="'+col+'"><i style="width:'+pct+'%"></i></div>');
+    h.push('<div class="meta"><span><b>'+money(col)+'</b> collected of '+money(pot())+'</span><span>'+handsIn(cw)+' of '+n+' hands in</span></div>');
+    var s = STATE.sent[String(cw)];
+    if (s) h.push('<div class="meta" style="margin-top:8px"><span class="pill p-paid">Pot sent '+money(s.amount)+(s.date?' · '+fmt(parseDate(s.date)):'')+'</span></div>');
+  }
+  h.push('</div>');
+  if (cw < n){
+    var nx = recipient(cw+1), nc = colorOf(nx, cw);
+    h.push('<div class="card next"><div class="eyebrow">Next weekend · Week '+(cw+1)+'</div><div class="muted small" style="margin-top:4px">'+fmt(weekDate(cw+1),{weekday:"long",month:"long",day:"numeric"})+'</div><div class="who"><span class="chip" style="background:'+nc+';color:'+textOn(nc)+'">'+esc(nx)+'</span><span class="muted small">then '+(cw+2<=n?esc(recipient(cw+2))+' on '+fmt(weekDate(cw+2)):'the cycle ends')+'</span></div></div>');
+  } else {
+    h.push('<div class="card next"><div class="eyebrow">Last weekend of the cycle</div><p class="muted">After this weekend every hand has received the pot once. Mèsi pou konfyans nou!</p></div>');
+  }
+  h.push('</section>');
+
+  // this week status per hand (optional)
+  if (STATE.showStatus && tracked){
+    var p = paidFor(cw);
+    h.push('<section><div class="sec-head"><h2>Payments this weekend</h2><span class="note">Updated by the organizer</span></div><div class="rot">');
+    for (var i=1;i<=n;i++){
+      var a = +p[i]||0, code = STATE.hands[i-1], c = colorOf(code,i-1);
+      var pill = a >= STATE.hand ? '<span class="pill p-paid">Paid</span>' : a>0 ? '<span class="pill p-owe">Owes '+money(STATE.hand-a)+'</span>' : '<span class="pill p-owe">Not yet</span>';
+      h.push('<div class="row"><span class="n">'+i+'</span><span class="sw" style="background:'+c+'"></span><span class="c">'+esc(code)+'</span>'+pill+'</div>');
+    }
+    h.push('</div></section>');
+  }
+
+  // rotation
+  h.push('<section><div class="sec-head"><h2>Payout order</h2><span class="note">Every hand pays '+money(STATE.hand)+' each weekend. Your number is the weekend you receive.</span></div><div class="rot">');
+  for (var w=1; w<=n; w++){
+    var code = STATE.hands[w-1], c = colorOf(code, w-1);
+    var st = w < cw ? '<span class="pill p-done">Received</span>' : w === cw ? '<span class="pill p-now">This weekend</span>' : '<span class="pill p-up">'+fmt(weekDate(w))+'</span>';
+    h.push('<div class="row'+(w===cw?' cur':'')+'"><span class="n">'+w+'</span><span class="sw" style="background:'+c+'"></span><div><div class="c">'+esc(code)+'</div><div class="d">'+fmt(weekDate(w),{weekday:"short",month:"short",day:"numeric",year:"numeric"})+'</div></div>'+st+'</div>');
+  }
+  h.push('</div></section>');
+
+  // chart
+  h.push('<section><div class="sec-head"><h2>Sòl chart</h2><span class="note">Scroll sideways on a phone</span></div><div class="chart-box"><table class="stair"><thead><tr><th class="corner lab"><span>Range</span></th><th class="corner code"><span>Code</span></th>');
+  for (var j=1;j<=n;j++){ var cj = colorOf(STATE.hands[j-1], j-1); h.push('<th class="'+(j===cw?'curcol':'')+'" style="background:'+cj+';color:'+textOn(cj)+'"><span>'+fmt(weekDate(j),{month:"2-digit",day:"2-digit"})+'</span></th>'); }
+  h.push('<th class="tot"><span>Total</span></th></tr></thead><tbody>');
+  for (var i2=1;i2<=n;i2++){
+    var ci = colorOf(STATE.hands[i2-1], i2-1);
+    h.push('<tr><th class="lab" style="background:'+ci+';color:'+textOn(ci)+'">'+i2+'</th><th class="code" style="background:'+ci+';color:'+textOn(ci)+'">'+esc(STATE.hands[i2-1])+'</th>');
+    for (var j2=1;j2<=n;j2++){
+      if (i2===j2) h.push('<td class="diag'+(j2===cw?' curcol':'')+'">'+i2+'</td>');
+      else { var m = Math.max(i2,j2); h.push('<td class="'+(j2===cw?'curcol':'')+'" style="background:'+colorOf(STATE.hands[m-1], m-1)+'"></td>'); }
+    }
+    h.push('<td class="tot">'+money(pot())+'.00</td></tr>');
+  }
+  h.push('</tbody></table><div class="chart-note">Each row pays '+money(STATE.hand)+' every weekend. The white number is the weekend that hand receives the pot. The outlined column is this weekend.</div></div></section>');
+
+  h.push('<footer><span><b>How it works.</b> Everyone pays their hand every weekend by Zelle to the organizer, with a memo like “SOL W'+cw+' – your code”. The full pot goes to that weekend’s number. Members holding more than one hand pay for each.</span>');
+  h.push('<span>'+(STATE.updated?'Last updated '+fmt(new Date(STATE.updated),{weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}):'')+'</span></footer>');
+  h.push('</div>');
+  if (ui.canEdit && dirty()) h.push('<div class="savebar" role="region" aria-label="Unsaved changes"><span>You have unsaved changes.</span><button class="btn ghost" id="discard">Discard</button><button class="btn" id="save" '+(ui.busy?'disabled':'')+'>'+(ui.busy?'Saving…':'Save for everyone')+'</button>'+(ui.error?'<span class="err">'+esc(ui.error)+'</span>':'')+'</div>');
+  app.innerHTML = h.join("");
+  bind();
+}
+
+function renderOrg(cw){
+  var w = ui.week || cw, n = N(), h = [];
+  h.push('<section class="org" aria-label="Organizer"><div class="sec-head" style="margin:0"><h2>Organizer</h2><span class="note">Only you see this. Members see the page below.</span></div>');
+  h.push('<div class="tabs" role="tablist"><button class="tab" role="tab" data-tab="pay" aria-selected="'+(ui.tab==="pay")+'">Payments</button><button class="tab" role="tab" data-tab="msg" aria-selected="'+(ui.tab==="msg")+'">Reminder</button><button class="tab" role="tab" data-tab="web" aria-selected="'+(ui.tab==="web")+'">Website</button><button class="tab" role="tab" data-tab="set" aria-selected="'+(ui.tab==="set")+'">Settings</button></div>');
+  if (ui.tab === "pay"){
+    var p = paidFor(w), col = collected(w), s = STATE.sent[String(w)] || null;
+    h.push('<div class="weekbar"><button class="btn small" id="wPrev" '+(w<=1?'disabled':'')+' aria-label="Previous week">‹</button><strong>Week '+w+' · '+fmt(weekDate(w),{weekday:"short",month:"short",day:"numeric"})+'</strong><button class="btn small" id="wNext" '+(w>=n?'disabled':'')+' aria-label="Next week">›</button>'+(w!==cw?'<button class="btn small" id="wNow">Back to this weekend</button>':'')+'<span class="note">Pot goes to <b>'+esc(recipient(w))+'</b></span></div>');
+    if (w < STATE.trackFrom) h.push('<p class="note">This week is before tracking started (week '+STATE.trackFrom+'). You can still record it if you want.</p>');
+    h.push('<div class="totals"><span>Collected <b>'+money(col)+'</b> of '+money(pot())+'</span><span>Missing <b>'+money(Math.max(0,pot()-col))+'</b></span><span>'+handsIn(w)+' of '+n+' hands paid in full</span><button class="btn small" id="allPaid">Mark all paid</button><button class="btn small" id="clearWeek">Clear week</button></div>');
+    h.push('<div class="paygrid">');
+    for (var i=1;i<=n;i++){
+      var a = p[i] != null ? +p[i] : 0, code = STATE.hands[i-1], c = colorOf(code,i-1);
+      var cls = a >= STATE.hand ? "ok" : a > 0 ? "part" : "";
+      h.push('<div class="payrow '+cls+'"><span class="n small muted">'+i+'</span><span class="code"><span class="sw" style="background:'+c+'"></span>'+esc(code)+'</span>');
+      h.push('<button class="pay'+(a>=STATE.hand?' on':'')+'" data-full="'+i+'" aria-label="Mark hand '+i+' paid in full">'+(a>=STATE.hand?'Paid':'Full')+'</button><input class="amt" id="amt-'+w+'-'+i+'" data-h="'+i+'" type="number" inputmode="decimal" min="0" step="1" value="'+(p[i]!=null?a:"")+'" placeholder="$0" aria-label="Amount paid by hand '+i+' '+esc(code)+'"></div>');
+    }
+    h.push('</div>');
+    h.push('<div class="totals" style="align-items:center"><label class="check"><input type="checkbox" id="sentBox" '+(s?'checked':'')+'> Pot sent to '+esc(recipient(w))+'</label>');
+    if (s) h.push('<label class="field" style="grid-auto-flow:column;align-items:center">Amount <input id="sentAmt" type="number" value="'+s.amount+'" style="width:110px"></label><label class="field" style="grid-auto-flow:column;align-items:center">Date <input id="sentDate" type="date" value="'+esc(s.date||"")+'"></label>');
+    h.push('</div><p class="note">Type what each hand paid, then press <b>Save for everyone</b> at the bottom. Members only see totals unless you turn on “Show each hand’s payment status” in Settings.</p>');
+  } else if (ui.tab === "msg"){
+    var m = reminder(cw);
+    h.push('<div class="msg" id="msgText">'+esc(m)+'</div><div><button class="btn primary" id="copyMsg">'+(ui.copied?'Copied':'Copy message')+'</button> <span class="note">Paste it in your WhatsApp group.</span></div>');
+  } else if (ui.tab === "web"){
+    h.push('<p class="note" style="max-width:62ch">Your public website shows the same page to anyone with its link, with no Claude account needed. It does not update by itself: after you save payments here, get a fresh website file and put it on GitHub.</p>');
+    h.push('<ol class="note" style="max-width:62ch;margin:0;padding-left:20px;display:grid;gap:4px"><li>Save your changes first (the bar at the bottom).</li><li>Press <b>Download website file</b> below and save <b>index.html</b>.</li><li>On GitHub, open your <b>solannou</b> repository, choose <b>Add file → Upload files</b>, drop in index.html, and press <b>Commit changes</b>.</li><li>The website updates within a minute or two.</li></ol>');
+    h.push('<div class="tabs">'+(ui.downloads?'<button class="btn primary" id="dlWeb">Download website file</button>':'')+'<button class="btn" id="copyWeb">Copy website file</button></div>');
+    if (dirty()) h.push('<p class="err">You have unsaved changes. The website file will include them, but save here too so both match.</p>');
+    if (ui.webMsg) h.push('<p class="note"><b>'+esc(ui.webMsg)+'</b></p>');
+  } else {
+    h.push('<div class="form">');
+    h.push('<label class="field">Sòl name<input id="fName" value="'+esc(STATE.name)+'"></label>');
+    h.push('<label class="field">Amount per hand ($)<input id="fHand" type="number" min="1" value="'+STATE.hand+'"></label>');
+    h.push('<label class="field">Week 1 date (first weekend)<input id="fStart" type="date" value="'+esc(STATE.start)+'"></label>');
+    h.push('<label class="field">Start tracking payments from week<input id="fTrack" type="number" min="1" value="'+STATE.trackFrom+'"></label>');
+    h.push('<label class="field" style="grid-column:1/-1">Hands in payout order — one code per line. A member with 2 hands appears twice.<textarea id="fHands">'+esc(STATE.hands.join("\n"))+'</textarea></label>');
+    h.push('<label class="check" style="grid-column:1/-1"><input type="checkbox" id="fShow" '+(STATE.showStatus?'checked':'')+'> Show each hand’s payment status to members (otherwise they see only the total collected)</label>');
+    h.push('</div><p class="note">For a new cycle: change the week 1 date and the list of hands, set tracking to week 1, then save. Changing hands keeps recorded payments by hand number.</p>');
+  }
+  h.push('</section>');
+  return h.join("");
+}
+
+function reminder(cw){
+  return "Bonjou tout moun! " + STATE.name + " – Week " + cw + " (" + fmt(weekDate(cw)) + ").\n" +
+    "Please send " + money(STATE.hand) + " for each hand you hold by Zelle today, with the memo \"SOL W" + cw + " – your code\".\n" +
+    "This weekend the pot of " + money(pot()) + " goes to " + recipient(cw) + "." +
+    (cw < N() ? " Next weekend: " + recipient(cw+1) + "." : "") + "\nMèsi anpil!";
+}
+
+function on(id, ev, fn){ var el = document.getElementById(id); if (el) el.addEventListener(ev, fn); }
+function bind(){
+  on("orgToggle","click",function(){ ui.org = !ui.org; render(); });
+  document.querySelectorAll(".tab").forEach(function(b){ b.addEventListener("click",function(){ ui.tab=b.dataset.tab; ui.copied=false; render(); }); });
+  var cw = currentWeek(), w = ui.week || cw;
+  on("wPrev","click",function(){ ui.week = Math.max(1,w-1); render(); });
+  on("wNext","click",function(){ ui.week = Math.min(N(),w+1); render(); });
+  on("wNow","click",function(){ ui.week = null; render(); });
+  document.querySelectorAll(".amt").forEach(function(inp){
+    inp.addEventListener("change",function(){
+      var k=String(w), hnd=inp.dataset.h, v=inp.value.trim();
+      var p = Object.assign({}, STATE.paid[k]||{});
+      if (v === "" ) delete p[hnd]; else p[hnd] = Math.max(0, +v || 0);
+      if (Object.keys(p).length) STATE.paid[k]=p; else delete STATE.paid[k];
+      render(); var nx = document.getElementById("amt-"+w+"-"+(+hnd+1)); if (nx) nx.focus();
+    });
+  });
+  document.querySelectorAll("[data-full]").forEach(function(b){ b.addEventListener("click",function(){
+    var k=String(w), hnd=b.dataset.full, p=Object.assign({},STATE.paid[k]||{});
+    if ((+p[hnd]||0) >= STATE.hand) delete p[hnd]; else p[hnd]=STATE.hand;
+    if (Object.keys(p).length) STATE.paid[k]=p; else delete STATE.paid[k];
+    render(); var el=document.querySelector('[data-full="'+hnd+'"]'); if (el) el.focus();
+  }); });
+  on("allPaid","click",function(){ var p={}; for (var i=1;i<=N();i++) p[i]=STATE.hand; STATE.paid[String(w)]=p; render(); });
+  on("clearWeek","click",function(){ delete STATE.paid[String(w)]; delete STATE.sent[String(w)]; render(); });
+  on("sentBox","change",function(e){ if (e.target.checked) STATE.sent[String(w)] = {amount:pot(), date:isoDate(new Date())}; else delete STATE.sent[String(w)]; render(); });
+  on("sentAmt","change",function(e){ STATE.sent[String(w)].amount = +e.target.value||0; render(); });
+  on("sentDate","change",function(e){ STATE.sent[String(w)].date = e.target.value; render(); });
+  on("copyMsg","click",function(){
+    var t = reminder(currentWeek());
+    function sel(){ var r=document.createRange(); r.selectNodeContents(document.getElementById("msgText")); var s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+    try { navigator.clipboard.writeText(t).then(function(){ ui.copied=true; render(); }, sel); } catch(e){ sel(); }
+  });
+  on("dlWeb","click",function(){
+    ui.downloads.save({filename:"index.html", data:buildPublic()}).then(function(){ ui.webMsg="Downloaded index.html. Now upload it to GitHub."; render(); },
+      function(e){ ui.webMsg = e && e.code==="declined" ? "" : "Couldn’t download here. Use Copy website file instead."; render(); });
+  });
+  on("copyWeb","click",function(){
+    var t = buildPublic();
+    try { navigator.clipboard.writeText(t).then(function(){ ui.webMsg="Copied. On GitHub, open index.html, press the pencil (Edit), select all, paste, and commit."; render(); },
+      function(){ ui.webMsg="Copying isn’t allowed here. Use Download website file instead."; render(); }); }
+    catch(e){ ui.webMsg="Copying isn’t allowed here. Use Download website file instead."; render(); }
+  });
+  on("fName","change",function(e){ STATE.name = e.target.value.trim() || STATE.name; render(); });
+  on("fHand","change",function(e){ var v=+e.target.value; if (v>0) STATE.hand=v; render(); });
+  on("fStart","change",function(e){ if (e.target.value) STATE.start=e.target.value; render(); });
+  on("fTrack","change",function(e){ var v=Math.round(+e.target.value); if (v>=1) STATE.trackFrom=v; render(); });
+  on("fHands","change",function(e){ var list=e.target.value.split(/\r?\n/).map(function(s){return s.trim();}).filter(Boolean); if (list.length) STATE.hands=list; render(); });
+  on("fShow","change",function(e){ STATE.showStatus = e.target.checked; render(); });
+  on("discard","click",function(){ STATE = JSON.parse(saved); ui.error=""; render(); });
+  on("save","click",save);
+}
+
+function buildDoc(){
+  STATE.updated = new Date().toISOString();
+  var json = JSON.stringify(STATE).replace(/</g,"\\u003c");
+  var fonts = document.querySelectorAll('link[href*="fonts.googleapis.com/css2"]')[0];
+  var page =
+    '<title>' + esc(STATE.name) + '</title>\n' +
+    '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
+    '<link rel="stylesheet" href="' + (fonts ? fonts.getAttribute("href") : "") + '">\n' +
+    '<style id="sol-css">' + document.getElementById("sol-css").textContent + '</style>\n' +
+    '<div id="app"></div>\n' +
+    '<script type="application/json" id="sol-state">' + json + '<\/script>\n' +
+    '<script id="sol-app">' + document.getElementById("sol-app").textContent + '<\/script>';
+  return SKELETON + page + "</body></html>";
+}
+function buildPublic(){
+  var st = JSON.parse(JSON.stringify(STATE)); st.updated = new Date().toISOString();
+  var json = JSON.stringify(st).replace(/</g,"\\u003c");
+  var fonts = document.querySelectorAll('link[href*="fonts.googleapis.com/css2"]')[0];
+  return '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">' +
+    '<meta name="robots" content="noindex,nofollow"><title>' + esc(st.name) + '</title>\n' +
+    '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
+    '<link rel="stylesheet" href="' + (fonts ? fonts.getAttribute("href") : "") + '">\n' +
+    '<style>html,body{margin:0;padding:0}img{max-width:100%}</style>\n' +
+    '<style id="sol-css">' + document.getElementById("sol-css").textContent + '</style>\n</head><body>\n<div id="app"></div>\n' +
+    '<script>window.SOL_PUBLIC=true<\/script>\n' +
+    '<script type="application/json" id="sol-state">' + json + '<\/script>\n' +
+    '<script id="sol-app">' + document.getElementById("sol-app").textContent + '<\/script>\n</body></html>';
+}
+function save(){
+  if (!ui.artifact || ui.busy) return;
+  ui.busy = true; ui.error = ""; render();
+  ui.artifact.publish(buildDoc()).then(function(){ saved = JSON.stringify(STATE); ui.busy=false; render(); }, function(e){
+    STATE.updated = JSON.parse(saved).updated;
+    ui.busy = false;
+    var code = e && e.code;
+    ui.error = code === "conflict" ? "Someone saved at the same time. The page will reload with their version." :
+               (code === "not_writer" || code === "not_granted") ? "You don’t have permission to save this page." :
+               "Couldn’t save. Check your connection and press Save again.";
+    render();
+  });
+}
+
+render();
+if (!PUBLIC && window.claude && window.claude.use){
+  Promise.all([window.claude.use("artifact"), window.claude.use("user"), window.claude.use("downloads")]).then(function(r){
+    ui.artifact = r[0];
+    ui.downloads = r[2];
+    var u = r[1];
+    if (!ui.artifact) return;
+    (u ? u.canEdit() : Promise.resolve(false)).then(function(ok){ ui.canEdit = !!ok; render(); });
+  }, function(){});
+}
+})();
+</script>
+</body></html>
